@@ -1,0 +1,116 @@
+﻿@model AHelpingHand.Models.CustomerDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1 class="custTitle">- My Information -</h1>
+
+<div>
+    <br />
+    <dl class="row">
+        <dt class="col-md-2">
+
+            @*@Html.DisplayNameFor(model => model.CustomerID)*@
+        </dt>
+
+        <dd class="col-md-2">
+            @Html.HiddenFor(model => model.CustomerID)
+        </dd>
+    </dl>
+
+
+    <dl class="row">
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd class="col-md-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd class="col-md-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd class="col-md-9">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Subcategory)
+        </dt>
+
+        <dd class="col-md-9">
+            @Html.DisplayFor(model => model.Subcategory)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-3">
+            @Html.DisplayNameFor(model => model.Skill)
+        </dt>
+
+        <dd class="col-md-9">
+            @Html.DisplayFor(model => model.Skill)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }, new { style = "font-size: 1.75em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { style = "font-size: 1.75em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+</p>
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(/Content/Image/Background8.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .custTitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-variant: small-caps;
+            font-size: 4em;
+        }
+
+        footer {
+            font-size: 1.25em;
+            font-variant: small-caps;
+            font-weight: 900;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        dt {
+            color: black;
+            font-size: 2.5em;
+            font-variant: small-caps;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        dd {
+            color: black;
+            font-size: 2em;
+            font-variant: small-caps;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+}

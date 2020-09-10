@@ -1,0 +1,115 @@
+﻿@model IEnumerable<AHelpingHand.Models.HelpListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1 class="helpTitle"> - Help That You Are Currently Offering -</h1>
+
+<p>
+    @Html.ActionLink("+ Add A New Service", "Create", null, new { @style = "font-size: 2em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" });
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subcategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewClients)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td id="tableData">
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td id="tableData">
+                @Html.DisplayFor(modelItem => item.Subcategory)
+            </td>
+            <td id="tableData">
+                @Html.DisplayFor(modelItem => item.Experience)
+            </td>
+            <td id="tableData">
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td id="tableData">
+                @Html.DisplayFor(modelItem => item.NewClients)
+            </td>
+             
+            <td id="links">
+                @Html.ActionLink("Edit", "Edit", new { id = item.HelpID }, new {style = "font-size: 1.75em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" } ) |
+                @Html.ActionLink("Details", "Details", new { id = item.HelpID }, new { style = "font-size: 1.75em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" } ) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.HelpID }, new { style = "font-size: 1.75em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" } )
+            </td>
+        </tr>
+    }
+</table>
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(/Content/Image/background8.jpg);
+            background-size: cover;
+        }
+
+        .helpTitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-variant: small-caps;
+            font-size: 5em;
+        }
+
+        input.check-box {
+            width: 1.25em;
+            height: 1.25em;
+        }
+
+        footer {
+            font-size: 1.25em;
+            font-variant: small-caps;
+            font-weight: 900;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        th {
+            color: black;
+            font-size: 2.25em;
+            font-variant: small-caps;
+            text-decoration: underline;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #tableData {
+            color: black;
+            font-size: 1.75em;
+            font-variant: small-caps;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+}

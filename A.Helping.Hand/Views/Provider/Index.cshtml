@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AHelpingHand.Models.ProviderListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Provider Information</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProviderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HelpID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProviderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HelpID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProviderID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProviderID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProviderID })
+            </td>
+        </tr>
+    }
+
+</table>

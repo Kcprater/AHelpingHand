@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<body>
+    <div class="title">
+        <h1 id="appTitle">A Helping Hand</h1>
+        <h1 id="appSub">Get Connected & Get Help!</h1>
+        <h3 id="appDesc">If you are in need of a specific service</h3>
+        <h3 id="appDesc">or wanting to offer your services</h3>
+        <h3 id="appDesc">then this is the place for you!</h3>
+        @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+</body>
+<footer class="homeFooter">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <p id="quote">When we give cheerfully and accept gratefully, everyone is blessed - Maya Angelou</p>
+    }
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p id="quote">We can't help everyone, but everyone can help someone. - Ronald Reagan</p>
+    }
+</footer>
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(/Content/Image/AbstractHands.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+
+        #appTitle {
+            color: black;
+            /*            background: -webkit-repeating-linear-gradient(red, blue, purple, yellow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;*/
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 7em;
+            text-align: left;
+        }
+        #appSub {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #appDesc {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #quote {
+            background-color: black;
+            font-size: large;
+            color: white;
+        }
+
+        .homeFooter {
+            position: fixed;
+            left: 0;
+            bottom: -.25em;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer {
+            font-size: 1.25em;
+            font-variant: small-caps;
+            font-weight: 900;
+            position: fixed;
+            left: 0;
+            bottom: 1.5em;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+}
+@*<div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@

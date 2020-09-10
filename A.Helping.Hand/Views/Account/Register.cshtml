@@ -1,0 +1,107 @@
+﻿@model A.Helping.Hand.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+@*<h2>@ViewBag.Title.</h2>*@
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <br />
+    <h1 class="regTitle">Need A Hand or Have A Hand To Lend?</h1>
+    <h2 class="regSubtitle">Create a new account:</h2>
+    <br />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label", style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+        <div class="col-md-3">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label", style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label", style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+        <div class="col-md-2">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label", style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+        <div class="col-md-2">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Choose User Type:", new { @class = "col-md-2 control-label", style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+        <div class="col-md-10">
+            @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ",new { style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-primary btn-lg purple-background white" value="Register" />
+        </div>
+    </div>
+    <footer class="regFooter">
+        <p id="quote">Happiness comes when your work and words are of benefit to yourself and others. - Buddha</p>
+    </footer>
+}
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(/Content/Image/AbstractHands.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #quote {
+            background-color: black;
+            font-size: large;
+            font-weight: 900;
+            color: white;
+        }
+
+        .regTitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-variant: small-caps;
+        }
+
+        .regSubtitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-variant: small-caps;
+        }
+
+        .regFooter {
+            position: fixed;
+            left: 0;
+            bottom: -.25em;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer {
+            font-size: 1.25em;
+            font-variant: small-caps;
+            font-weight: 900;
+            position: fixed;
+            left: 0;
+            bottom: 1.5em;
+            width: 100%;
+            text-align: center;
+        }
+
+        .purple-background {
+            background-color: purple;
+        }
+
+        .white {
+            color: white;
+        }
+    </style>
+}

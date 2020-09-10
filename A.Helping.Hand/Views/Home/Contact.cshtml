@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = " - Contact A Helping Hand - ";
+}
+<h1 class="contactTitle">@ViewBag.Title</h1>
+@*<h3>@ViewBag.Message</h3>*@
+<br />
+<br />
+
+<address id="contactAdd">
+    <strong>A Helping Hand Inc.</strong> <br />
+    <strong>PO Box 423</strong> <br />
+    <strong>Indianapolis, Indiana 46202</strong> <br /> <br />
+    <strong>Phone: 317-555-1234</strong> <br />
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@AHelpingHand.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@AHelpingHand.com</a>
+</address>
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(/Content/Image/Background8.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+
+        .contactTitle {
+            color: black;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 5em;
+            text-align: center;
+            padding-top: .5em;
+        }
+
+        #contactAdd {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        footer {
+            font-size: 1.25em;
+            font-variant: small-caps;
+            font-weight: 900;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+}

@@ -1,0 +1,119 @@
+﻿@using A.Helping.Hand.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <br />
+                @Html.AntiForgeryToken()
+                <h1 class="logTitle">Welcome Back!</h1>
+                <h2 class="logSubtitle">Login to Get Connected and Get Help!</h2>
+                <br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label", style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label", style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe, new { @style = "font-size: 1.5em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-primary btn-lg purple-background white" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("New here and need to create an account?", "Register", null, new { @style = "color: black; font-size: 1.75em; font-variant: small-caps; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"})
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
+            }
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
+</div>
+<footer class="logFooter">
+    <p id="quote">Everyday has the potential to be the greatest day of your life - Lin-Manuel Miranda</p>
+</footer>
+
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(/Content/Image/AbstractHands.jpg);
+            background-size: cover;
+            background-repeat: repeat-y;
+        }
+
+        #quote {
+            background-color: black;
+            font-size: large;
+            font-weight: 900;
+            color: white;
+        }
+        .logTitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-variant: small-caps;
+        }
+
+        .logSubtitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-variant: small-caps;
+        }
+
+        .logFooter {
+            position: fixed;
+            left: 0;
+            bottom: -.25em;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer {
+            font-size: 1.25em;
+            font-variant: small-caps;
+            font-weight: 900;
+            position: fixed;
+            left: 0;
+            bottom: 1.5em;
+            width: 100%;
+            text-align: center;
+        }
+
+        .purple-background {
+            background-color: purple;
+
+        }
+        .white {
+            color: white;
+
+        }
+    </style>
+}
