@@ -11,7 +11,7 @@ namespace AHelpingHand.Data
     public class Customer
     {
         [Key]
-        [Display(Name = "Customer ID")]
+        [Display(Name = "Customer ID:")]
         public int CustomerID { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
